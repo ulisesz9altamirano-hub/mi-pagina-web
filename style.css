@@ -1,0 +1,416 @@
+
+/* ==========================================================================
+   Navegación Premium (Estilo Moderno)
+   ========================================================================== */
+header {
+    /* Fondo semi-transparente oscuro (Efecto Cristal) */
+    background-color: rgba(26, 26, 46, 0.8); 
+    /* El truco clave: desenfoca lo que pasa por detrás al hacer scroll */
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); 
+    
+    padding: 15px 50px; /* Un toque más fina para que sea elegante */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* Borde inferior sutil y brillante */
+    border-bottom: 1px solid rgba(0, 255, 240, 0.1); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    max-width: 1200px; /* Alineada con el resto de la web */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800; /* Más gruesa */
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Detalle de color en la última letra o un punto en el logo */
+.logo::after {
+    content: '.';
+    color: #00fff0; /* El punto cian al final le da el toque tech */
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Más espacio entre enlaces */
+    align-items: center;
+}
+
+.nav-links a {
+    color: #cbd5e1; /* Un blanco grisáceo más suave a la vista */
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative; /* Necesario para el efecto de la línea de abajo */
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* Efecto de línea animada que aparece abajo al pasar el mouse */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00fff0;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-links a:hover {
+    color: #00fff0;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Modificación para el botón de Contacto del menú si querés que resalte */
+.nav-links .btn-contacto {
+    background: rgba(0, 255, 240, 0.1);
+    color: #00fff0;
+    padding: 8px 20px !important;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 240, 0.4);
+    transition: all 0.3s ease;
+}
+
+.nav-links .btn-contacto:hover {
+    background: #00fff0;
+    color: #1a1a2e !important;
+    box-shadow: 0 0 15px rgba(0, 255, 240, 0.4);
+}
+
+.nav-links .btn-contacto::after {
+    display: none; /* Le saca la línea de abajo a este botón */
+}
+
+/* Adaptación rápida para que no se rompa en pantallas chicas */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 14px;
+    }
+}
+/* Sección Hero */
+/* ==========================================================================
+   Sección Hero (Inicio)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 50px;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Contenedor que divide el texto de la imagen */
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+}
+
+/* Bloque de Texto */
+.hero-content {
+    flex: 1; /* Toma el 50% del espacio */
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #ffffff, #00fff0);
+    
+    /* Propiedades para el degradado en el texto sin warnings */
+    -webkit-background-clip: text;
+    background-clip: text; /* 👈 Agregando esta línea se soluciona el aviso */
+    -webkit-text-fill-color: transparent; 
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #e0e0e0;
+}
+
+/* Botón de Acción (Call to Action) */
+.cta-btn {
+    display: inline-block;
+    background-color: #00fff0;
+    color: #1a1a2e;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 30px; /* Botón redondeado moderno */
+    box-shadow: 0 4px 15px rgba(0, 255, 240, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Bloque de Imagen */
+.hero-img {
+    flex: 1; /* Toma el otro 50% del espacio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img img {
+    width: 100%;
+    max-width: 500px; /* Para que no se gigantice en pantallas enormes */
+    height: auto;
+    border-radius: 20px; /* Bordes suaves para la imagen */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra pesada para dar profundidad */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto interactivo al pasar el mouse por la foto */
+.hero-img img:hover {
+    transform: scale(1.02) rotate(1deg);
+}
+
+/* ==========================================================================
+   Adaptación para Celulares (Responsivo)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero-container {
+        flex-direction: column-reverse; /* En la parra de arriba queda la imagen, abajo el texto */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-img img {
+        max-width: 80%; /* En celular se achica un toque para que no tape todo */
+    }
+}
+/* Servicios */
+.services {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+.service-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Hace que la imagen se adapte sin deformarse */
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 350px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: #16213e;
+}
+
+/* ==========================================================================
+   Sección Portafolio - Soluciones para Emprendimientos
+   ========================================================================== */
+.portfolio {
+    padding: 80px 50px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 32px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.sub-section {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+/* Contenedor de las Tarjetas */
+.portfolio-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Hace que se acomoden abajo si la pantalla es chica */
+}
+
+/* Tarjeta Individual */
+.portfolio-card {
+    background-color: #f4f7f6;
+    border-radius: 12px; /* Bordes más redondeados y modernos */
+    overflow: hidden; /* Clave: hace que la imagen respete las esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto al pasar el mouse por encima */
+.portfolio-card:hover {
+    transform: translateY(-8px); /* La tarjeta se eleva un poquito */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* La sombra se vuelve más intensa */
+}
+
+/* Imagen de la tarjeta */
+.portfolio-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover; /* Recorta la imagen para que encaje perfecto sin deformarse */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto extra: zoom suave en la imagen al hacer hover */
+.portfolio-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Información de la Tarjeta (Textos) */
+.portfolio-info {
+    padding: 25px;
+    text-align: left; /* Texto alineado a la izquierda para mejor lectura */
+}
+
+.portfolio-info h3 {
+    margin-bottom: 12px;
+    color: #16213e;
+    font-size: 20px;
+}
+
+.portfolio-info p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6; /* Espaciado entre líneas para que sea cómodo de leer */
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .portfolio {
+        padding: 50px 20px;
+    }
+    
+    .portfolio-grid {
+        gap: 20px;
+    }
+}
+
+/* Contacto */
+.contact {
+    background-color: #e3e8f0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 15px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Separa el ícono del texto */
+    margin-top: 20px;
+    background-color: #25D366; /* El verde oficial de WhatsApp */
+    color: #fff;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 30px; /* Bordes redondeados modernos */
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); /* Sombra verde sutil */
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn i {
+    font-size: 22px; /* Hace el ícono un poquito más grande que el texto */
+}
+
+/* Efecto al pasar el mouse */
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    background-color: #20ba5a; /* Un verde un toque más oscuro al hacer hover */
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+footer {
+    background-color: #1a1a2e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
